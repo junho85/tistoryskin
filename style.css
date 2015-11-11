@@ -255,6 +255,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 .area_reply .list_reply .my_reply{background-color:#fcfcfc}
 .area_reply .list_reply .re_reply{padding-left:86px}
 .area_reply .reply_content{float:left}
+.area_reply .reply_content span img {border-radius: 100%}
 .area_reply .list_reply .img_profile { margin-top:2px }
 .area_reply .tit_nickname{display:block;overflow:hidden;max-width:515px;margin:4px 5px 0 0;font-weight:bold;color:#333;white-space:nowrap}
 .area_reply .my_reply .tit_nickname{color:#3db39e}
@@ -406,6 +407,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 	.area_reply .list_reply .re_reply{padding-left:60px}
 	.area_reply .list_reply .prev_reply:before{content:'';position:absolute;left:31px;top:48px;width:1px;height:100%;background-color:#ccc}
 	.area_reply .reply_content{display:block;float:none;padding:0 28px 0 45px}
+	.area_reply .reply_content span img {border-radius: 100%}
 	.area_reply .list_reply .img_profile{width:33px;height:33px;border-radius:33px;margin:0}
 	.area_reply .list_reply .tit_nickname{font-size:13px;overflow:visible;margin:0px 5px 2px 0;color:#333;vertical-align:top;white-space:normal;font-family: applesdgothicneo-semibold}
 	.area_reply .re_reply .tit_nickname{color:#3db39e}
