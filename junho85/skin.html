@@ -21,24 +21,17 @@
     <!--<![endif]-->
 
     <script type="text/javascript">
-        const keyHighlights = {
+        const shortcuts = {
             'w': "/manage/newpost/?type=post", // write
             'e': `/manage/newpost/${location.pathname.split('/')[1]}`, // edit
             't': "#", // top
         };
-
-        function getKey(event) {
+        document.addEventListener('keypress', function (event) {
             if (!['INPUT', 'TEXTAREA'].includes(event.target.tagName)) {
-                ticket = event.keyCode;
-                let char = String.fromCharCode(ticket).toLowerCase();
-
-                for (let i in keyHighlights) {
-                    if (char === i) window.location = keyHighlights[i];
-                }
+                let char = event.key.toLowerCase();
+                if (shortcuts.hasOwnProperty(char)) window.location = shortcuts[char];
             }
-        }
-
-        document.addEventListener('keypress', getKey);
+        });
     </script>
 </head>
 
