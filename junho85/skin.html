@@ -20,22 +20,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!--<![endif]-->
 
-    <script type="text/javascript">
-        const shortcuts = {
-            'w': "/manage/newpost/?type=post", // write
-            'e': `/manage/newpost/${location.pathname.split('/')[1]}`, // edit
-            't': "#", // top
-        };
-        document.addEventListener('keypress', function (event) {
-            if (!['INPUT', 'TEXTAREA'].includes(event.target.tagName)) {
-                let char = event.key.toLowerCase();
-                if (shortcuts.hasOwnProperty(char)) window.location = shortcuts[char];
-            }
-        });
-    </script>
 </head>
 
 <body id="[##_body_id_##]">
+
+<div id="shortcutLayer"
+     style="display: none; width: 300px; border: 1px solid black; padding: 10px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; z-index: 1000;">
+    <span style="float: right; cursor: pointer;" id="closeLayer">X</span>
+    <h2>단축키 안내</h2>
+    <p><strong>W</strong> - 새 글 쓰기</p>
+    <p><strong>E</strong> - 글 수정</p>
+    <p><strong>T</strong> - 맨 위로 이동</p>
+    <p><strong>Q</strong> - 어드민/메인</p>
+    <p><strong>?</strong> or <strong>Shift + /</strong> - 단축키 안내</p>
+</div>
+<script type="text/javascript">
+    const shortcuts = {
+        'w': "/manage/newpost/?type=post", // write
+        'e': `/manage/newpost/${location.pathname.split('/')[1]}`, // edit
+        't': "#", // top
+    };
+
+    document.addEventListener('keypress', function (event) {
+        if (!['INPUT', 'TEXTAREA'].includes(event.target.tagName)) {
+            let char = event.key.toLowerCase();
+
+            if (char === '?' || (event.shiftKey && char === '/')) {
+                const shortcutLayer = document.getElementById('shortcutLayer');
+                if (shortcutLayer.style.display === 'block') {
+                    shortcutLayer.style.display = 'none';
+                } else {
+                    shortcutLayer.style.display = 'block';
+                }
+            }
+
+            if (shortcuts.hasOwnProperty(char)) window.location = shortcuts[char];
+        }
+    });
+
+    const closeLayer = document.getElementById('closeLayer');
+    closeLayer.addEventListener('click', function () {
+        shortcutLayer.style.display = 'none';
+    });
+</script>
+
 <s_t3>
 
     <div id="dkIndex">
